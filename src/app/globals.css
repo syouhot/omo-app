@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #08160b;
   --foreground: #171717;
 }
 
@@ -19,8 +19,97 @@
   }
 }
 
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 4px;
+    /* 滚动条宽度 */
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    /* 轨道背景 */
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #3c423f;
+    /* 滑块颜色 */
+    border-radius: 4px;
+    /* 滑块圆角 */
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #2d3748;
+    /* 滑块悬停颜色 */
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes fadeIn2 {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.DialogContentOpen[data-state="open"] {
+  animation: fadeIn 200ms ease-out forwards;
+}
+.DialogContentOpen2[data-state="open"] {
+  animation: fadeIn2 200ms ease-out forwards;
+}
+
+.DialogContentDisconnect[data-state="open"] {
+  animation: fadeUp 200ms ease-out forwards;
+}
+
+
+.text-warning {
+  color: rgb(219, 138, 31);
+}
+
+.point {
+  background: conic-gradient(transparent 0deg, transparent 0deg, rgb(31, 219, 44) 0deg, rgb(31, 219, 44) 360deg);
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  /* 自定义样式代码 */
+  position: absolute;
+  top: 3%;
+  transform: translateX(-30%);
+  background-color: rgba(8, 22, 11, 0.96);
+  color: #fff;
+  padding: 12px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  animation: fadeUp 600ms ease-out forwards;
+  z-index: 100;
 }
