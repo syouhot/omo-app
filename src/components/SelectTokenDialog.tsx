@@ -45,7 +45,7 @@ export default function SelectTokenDialog() {
             setTokenList(tokenData.filter((item: tokenEntity) =>
                 item.chain_id === id && item.symbol.includes(search)
             ))
-            if (!tokenOutEntity?.name) setTokenOutEntity(tokenData[0])
+            // if (!tokenOutEntity?.name) setTokenOutEntity(tokenData[0])
         }
     }, [tokenOutEntity, tokenData, search, activeChainId])
     return (
@@ -54,7 +54,7 @@ export default function SelectTokenDialog() {
 
                 <button className="flex items-center gap-2 h-10 text-white/20 text-[24px] font-normal font-['Onest'] px-2 rounded-lg border border-transparent hover:border-white/12" >
                     {
-                        tokenOutEntity ? (
+                        tokenOutEntity && tokenOutEntity.symbol ? (
                             <span className='text-white'>{tokenOutEntity.symbol}</span>
                         ) : (
                             <span>Select Token</span>
