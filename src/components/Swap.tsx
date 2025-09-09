@@ -15,7 +15,7 @@ const styles = {
     headerRight: "h-10 px-4 bg-green-500/10 rounded-xl items-center inline-flex gap-2 text-green-500 text-sm font-medium font-['Norm'] cursor-pointer",
     swapContent: "w-full h-[252px] mt-5 p-1 bg-black/20 rounded-xl border border-white/20",
     contentTop: "relative h-[128px] bg-white/7 rounded-xl px-3 py-5",
-    content1: "absolute left-0 bottom-[-42px] w-full h-[42px] pointer-events-none bg-[url(/assets/images/omo/switch-container.png)] bg-[position:center_bottom_18] bg-no-repeat bg-contain",
+    content1: "absolute left-0 bottom-[-42px] w-full h-[42px] pointer-events-none bg-[url(/assets/images/omo/switch-container.png)] bg-center bg-no-repeat bg-contain",
     content2: "w-9 h-9 absolute left-[50%] ml-[-18px] bottom-[-20px] flex items-center justify-center border border-white/16 rounded-xl bg-[#031003] cursor-pointer",
     content3: "text-neutral-400 text-[13px] font-normal font-['Onest'] flex gap-2",
     content4: "mt-[10px] text-right text-white/30 text-sm font-normal font-['Norm'] leading-[14px]",
@@ -119,7 +119,7 @@ export default function Swap() {
                 <div className={styles.swapContent}>
                     {/* content top */}
                     <div className={styles.contentTop}>
-                        <div className={styles.content1}>
+                        <div className={styles.content1} style={{backgroundPositionY:'-18px'}}>
                         </div>
                         <div className={styles.content2}>
                             <img src="/assets/images/omo/swap.png" alt="" className='w-4' />
